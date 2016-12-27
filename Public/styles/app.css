@@ -1,0 +1,12 @@
+.display-3 {
+    font-weight: 100;
+}
+
+.display-3 a {
+    color: inherit;
+}
+
+.form-control,
+.btn {
+    border-radius: 0 !important;
+}
