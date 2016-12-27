@@ -4,7 +4,7 @@ let drop = Droplet()
 
 drop.get { req in
     return try drop.view.make("welcome", [
-    	"message": drop.localization[req.lang, "welcome", "title"]
+        "url": "https://johnny:p4ssw0rd@www.example.com:443/script.ext;param=value?query=value#ref"
     ])
 }
 
