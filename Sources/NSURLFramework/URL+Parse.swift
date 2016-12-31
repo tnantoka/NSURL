@@ -4,8 +4,7 @@ import Foundation
 extension URL {
     var parsed: Node {
         guard let url = NSURL(string: absoluteString) else { return .array([]) }
-        return .array([
-            parse(key: "isFileReferenceURL()", value: url.isFileReferenceURL()),
+        var array = [
             parse(key: "isFileURL", value: url.isFileURL),
             parse(key: "absoluteString", value: url.absoluteString),
             parse(key: "absoluteURL", value: url.absoluteURL),
@@ -26,13 +25,21 @@ extension URL {
             parse(key: "standardized", value: url.standardized),
             parse(key: "user", value: url.user),
             parse(key: "filePathURL", value: url.filePathURL),
-            parse(key: "fileReferenceURL()", value: url.fileReferenceURL()),
             parse(key: "deletingLastPathComponent", value: url.deletingLastPathComponent),
             parse(key: "deletingPathExtension", value: url.deletingPathExtension),
             // parse(key: "resolvingSymlinksInPath", value: url.resolvingSymlinksInPath),
             parse(key: "standardizingPath", value: url.standardizingPath),
             // parse(key: "hasDirectoryPath", value: url.hasDirectoryPath),
-        ])
+        ]
+
+        #if os(OSX)
+            array.append(contentsOf: [
+                parse(key: "isFileReferenceURL()", value: url.isFileReferenceURL()),
+                parse(key: "fileReferenceURL()", value: url.fileReferenceURL()),
+            ])
+        #endif
+
+        return .array(array)
     }
 
     private func parse(key: String, value: String?) -> Node {
