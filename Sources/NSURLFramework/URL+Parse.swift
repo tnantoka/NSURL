@@ -3,7 +3,7 @@ import Foundation
 
 extension URL {
     var parsed: Node {
-        let url = self as NSURL
+        guard let url = NSURL(string: absoluteString) else { return .array([]) }
         return .array([
             parse(key: "isFileReferenceURL()", value: url.isFileReferenceURL()),
             parse(key: "isFileURL", value: url.isFileURL),
