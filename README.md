@@ -1,15 +1,33 @@
-# Basic Template
+# NSURL
 
-A basic vapor template for starting a new Vapor web application. If you're using vapor toolbox, you can use: `vapor new --template=basic`
+[![Build Status](https://travis-ci.org/tnantoka/NSURL.svg?branch=master)](https://travis-ci.org/tnantoka/NSURL)
 
-## 📖 Documentation
+NSURL on Server-side Swift.
 
-Visit the Vapor web framework's [documentation](http://docs.vapor.codes) for instructions on how to use this package.
+http://nsurl.serversideswift.net/ 
 
-## 💧 Community
+## Development
 
-Join the welcoming community of fellow Vapor developers in [slack](http://vapor.team).
+### Xcode
 
-## 🔧 Compatibility
+```
+$ vapor xcode -y
+```
 
-This package has been tested on macOS and Ubuntu.
+### Sever
+
+```
+$ vapor run
+```
+
+### Test
+
+```
+$ swift test
+```
+
+## Deploy
+
+```
+$ git push heroku master
+```
